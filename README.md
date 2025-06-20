@@ -78,4 +78,27 @@ These safeguards are also intended to prevent invalid entries, however they'll s
 
 (The prompt box is just the regular prompt box for entering guesses. Furthermore, the NYT will not display any message for the first 3 scenarios. The NYT's Wordle does however allow repeat entries which this application does not allow.)
 
+## Word Logic
+
+The Wordle application must display the correct color for each letter: 
+
+- Green: If in word
+- Yellow: If in word but wrong position
+- Grey: Not in word
+
+There however is an issue with duplicate words like _SASSY_. For instance, if there are two words:
+
+- **Word:** ASSET
+- **Guess:** SASSY
+
+The program must correctly label each S in SASSY with the first S as the following: 
+
+- First S: "Yellow" since it's in ASSET but in the wrong position.
+- Second S should be "Grey" since the third S in SASSY is in the correct position.
+- Third S is "Green" since it is in the correct position.
+
+Python's `in` operator can be used for this however, the `in` operator will not consider duplicates. Consequently, Python will incorrectly state that there are 2 "yellow" S's in the word SASSY. This issue however can be solved by utilizing the following formula: 
+
+
+
 ## File Explanations
