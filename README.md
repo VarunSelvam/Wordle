@@ -13,8 +13,14 @@ Wordle Clone in Python with the ability replay games and prevent repeat entries.
 - Games Won Percentage
 - Games Lost Percentage
 
-The second visualization shows the player's most frequently guessed words.
+The second visualization shows the player's most frequently guessed words:
+
+![Image](https://github.com/user-attachments/assets/10c34b9a-aa11-4c18-93a8-aff8fd941b0c)
+
 
 ## Project Features
+
+
+
  
 ## File Explanations
