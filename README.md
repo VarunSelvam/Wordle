@@ -1,2 +1,2 @@
 # Wordle
-Wordle Clone in Python with extra features.
+Wordle Clone in Python with the ability replay games and prevent repeat entries.
