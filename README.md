@@ -97,8 +97,40 @@ The program must correctly label each S in SASSY with the first S as the followi
 - Second S should be "Grey" since the third S in SASSY is in the correct position.
 - Third S is "Green" since it is in the correct position.
 
-Python's `in` operator can be used for this however, the `in` operator will not consider duplicates. Consequently, Python will incorrectly state that there are 2 "yellow" S's in the word SASSY. This issue however can be solved by utilizing the following formula: 
+Python's `in` operator can be used, however the `in` operator will not consider duplicates. Consequently, Python will incorrectly state that there are 2 "yellow" S's in the word SASSY. This issue however can be solved by utilizing the following formula which will be demonstrated for the letter S in "SASSY".
 
+- Word: ASSET
+- Guess: SASSY
 
+Correct Position (CP): 1
+Wrong Position(WP): 2
+Total Letter Count (TLC) in Word (ASSET): 2
+Total Yellow Labelled Letters:  (TYL)
 
-## File Explanations
+**Ex:** TYL = TLC - (CP + WP)
+             TYL = 2 - (1+2)
+             TYL = -1
+             |TYL| = 1
+             
+TYL = 1 indicates that one of the yellow labelled "S" in SASSY should be changed to Grey. Additionally, if TYL = 0, this means that Python's `in` operator has labelled the correct number of yellow letters. This formula however will not work if the letter count is greater in the word compared to the guess. For instance: 
+
+- Word: ABBAS
+- GUESS: BliSS
+
+This code will not work for "B" in Bliss because there are two letters in ABBAS. 
+
+Correct Position (CP): 0
+Wrong Position(WP): 1
+Total Letter Count (TLC) in Word (ABBAS): 2
+Total Yellow Labelled Letters:  (TYL)
+
+**Ex:** TYL = TLC - (CP + WP)
+             TYL = 2 - (0+1)
+             TYL = 1
+             |TYL| = 1
+
+The formula is stating that one of the yellow labelled "B" should be changed to Grey which is erroneous. There is only one "B" in BLISS which is in the wrong location but the formula is stating that this should be colored Grey. This would consequently imply that the Word (ABBAS) has no B when this is false. The solution however is to only use this formula when the **Total Letter Count in Guess > Total Letter Count in Word**. 
+
+**Final Formula**: TYL = TLC - (CP + WP) if (TLC in Guess TLC < TLC in Word)
+
+## File Explanations: 
