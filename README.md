@@ -115,22 +115,41 @@ Total Yellow Labelled Letters:  (TYL)
 TYL = 1 indicates that one of the yellow labelled "S" in SASSY should be changed to Grey. Additionally, if TYL = 0, this means that Python's `in` operator has labelled the correct number of yellow letters. This formula however will not work if the letter count is greater in the word compared to the guess. For instance: 
 
 - Word: ABBAS
-- GUESS: BliSS
+- GUESS: BLISS
 
 This code will not work for "B" in Bliss because there are two letters in ABBAS. 
 
-Correct Position (CP): 0
-Wrong Position(WP): 1
-Total Letter Count (TLC) in Word (ABBAS): 2
-Total Yellow Labelled Letters:  (TYL)
+- Correct Position (CP): 0
+- Wrong Position(WP): 1
+- Total Letter Count (TLC) in Word (ABBAS): 2
+- Total Yellow Labelled Letters:  (TYL)
 
-**Ex:** TYL = TLC - (CP + WP)
-             TYL = 2 - (0+1)
-             TYL = 1
-             |TYL| = 1
+**Ex:** 
+- TYL = TLC - (CP + WP)
+- TYL = 2 - (0+1)
+- TYL = 1
+- |TYL| = 1
 
 The formula is stating that one of the yellow labelled "B" should be changed to Grey which is erroneous. There is only one "B" in BLISS which is in the wrong location but the formula is stating that this should be colored Grey. This would consequently imply that the Word (ABBAS) has no B when this is false. The solution however is to only use this formula when the **Total Letter Count in Guess > Total Letter Count in Word**. 
 
-**Final Formula**: TYL = TLC - (CP + WP) if (TLC in Guess TLC < TLC in Word)
+**Final Formula**: TYL = TLC - (CP + WP) **if** (TLC in Guess TLC < TLC in Word)
 
 ## File Explanations: 
+- **`official_wordle_function.py`**: Contains the official wordle function to determine whether a letter should be green, yellow or grey. The script is also the Python implementation of the formula explained in **Word Logic** along with being imported into the **wordle_gui** script.
+
+- **`wordle_gui`**: This script runs the actual Wordle Game.
+
+- `5_letter_words.txt`: Contains all the 5 letter words used to validate guesses and select a word. There are approximately 13,000 5-letter words in the English Language. This file contains **9,139 words** which is **70.30%** of all 5-letter words.
+
+- `frequent_guesses.txt`: Tracks all the guesses made by the player for every game. Wordle GUI Script then counts the distribution for each word to determine the top 10 most guessed words.
+
+- `keyboard_logic.py`: Explains the logic for coloring the keys along
+
+- `word list links.txt`: Contains links to the files used to complile the 5 letter word list.
+
+- `wordle_py`: Testing Code for validating that the **official wordle function.py** script is correctly labelling each letter. It also has more contexts to provide more context on the function.
+
+- `wordle_stats.txt`: Records all the information about the player's stats across games.
+  - "L" = Loss
+  - "W" = Win
+  - 1,2,3,4,5,6 = Number of guesses for an individual game. The **wordle_gui** script will count the number of 1's in the file to determine the number of games where it took the player one guess.
