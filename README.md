@@ -135,7 +135,7 @@ The formula states that one of the yellow labelled "B" should be changed to Grey
 **Final Formula**: TYL = TLC - (CP + WP) **if** (TLC in Guess TLC < TLC in Word)
 
 ## File Explanations: 
-- **`official_wordle_function**: Contains the official wordle function to determine whether a letter should be green, yellow or grey. The script is also the Python implementation of the formula explained in **Word Logic** along with being imported into the **wordle_gui** script.
+- **`official_wordle_function`**: Contains the official wordle function to determine whether a letter should be green, yellow or grey. The script is also the Python implementation of the formula explained in **Word Logic** along with being imported into the **wordle_gui** script.
 
 - **`official_wordle_script`**: This script runs the actual Wordle Game.
 
