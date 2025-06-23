@@ -27,18 +27,18 @@ for i in range(len(guess_list)):
         total_word_cnt = word.count(guess_list[i][0])
         processed_words.append(guess_list[i])
         difference = total_word_cnt - (correct_pos + wrong_pos)
-        a = guess_list[i]
+        letter = guess_list[i]
         if difference != 0: # If difference equals zero, this means that letter's have been labelled correctly.
             index_position = []
             abs_diff = abs(difference) # Difference will be negative, so use absolute value to make it positive.
             print("statement passed difference != 0") # Check that code worked
-            for j in range(0,len(guess_list)):
-                if a == guess_list[j]:
-                    index_position.append(j) # Grab all the locations for a letter
+            for location in range(0,len(guess_list)):
+                if letter == guess_list[location]:
+                    index_position.append(location) # Grab all the locations for a letter
                     print("Appending Letter") # Check that code worked
-            for k in range(0,abs_diff): # Use difference to control how many letters are changed to single asterisk. diff determines the amount of letters to be changed to single asterisk.
-                m = index_position[k]
-                guess_list[m] = guess_list[m][0] + "**"
+            for letter_loc in range(0,abs_diff): # Use difference to control how many letters are changed to single asterisk. diff determines the amount of letters to be changed to single asterisk.
+                le = index_position[letter_loc] # le = letter, loc = location
+                guess_list[le] = guess_list[le][0] + "**"
 
 print(guess_list)
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -68,18 +68,18 @@ def wordle(word,guess):
             total_word_cnt = word.count(guess_list[i][0])
             processed_words.append(guess_list[i])
             difference = total_word_cnt - (correct_pos + wrong_pos)
-            a = guess_list[i]
+            letter = guess_list[i]
             if difference != 0:
                 index_position = []
                 abs_diff = abs(difference)
                 # print("statement passed difference != 0")
-                for j in range(0,len(guess_list)):
-                    if a == guess_list[j]:
-                        index_position.append(j)
+                for location in range(0,len(guess_list)):
+                    if letter == guess_list[location]:
+                        index_position.append(location)
                         # print("Appending Letter")
-                for k in range(0,abs_diff):
-                    m = index_position[k]
-                    guess_list[m] = guess_list[m][0] + "**"
+                for letter_loc in range(0,abs_diff):
+                    le = index_position[letter_loc]
+                    guess_list[le] = guess_list[le][0] + "**"
 
     return(guess_list,"word:",word,"guess:",guess)
 #-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
