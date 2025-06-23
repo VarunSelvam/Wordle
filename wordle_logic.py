@@ -176,12 +176,9 @@ GREEN = '\033[92m'
 BLUE = '\033[94m'
 RESET = '\033[0m'  # This resets the color back to default
 
-# Let’s break down what’s happening here:
 # - `\033` is the escape character
 # - The number between `[` and `m` defines the color
 # - We always use `RESET` after colored text to prevent color bleeding into subsequent output
-
-# Link: https://medium.com/@ryan_forrester_/adding-color-to-python-terminal-output-a-complete-guide-147fcb1c335f
 
 # Final Code down below will print whether a word is correct or incorrect.
 wrong_words = []
