@@ -5,13 +5,13 @@
 **Wordle GUI**
 
 ## Project Summary
-Wordle Clone in Python with the ability replay games and prevent repeat entries. It additionally has a keyboard like the New York Times (NYT) Wordle to assist with guessing the word. The keyboard will color based on three colors: 
+Wordle Clone in Python with the ability to replay games and prevent duplicate entries. It additionally has a keyboard like the New York Times (NYT) Wordle to assist with guessing the word. The keyboard will be colored based on three colors: 
 
-- Green:  If letter is in the correct position, even if the letter is later guessed in another guess word and is in the wrong position.
+- Green: If letter is in the correct position, even if the letter is later guessed in another guess word and is in the wrong position.
 - Yellow: If the letter is in the word but in the wrong position, regardless of whether a user later guesses the letter twice and one of the letters is not in the word.
 - Grey: If the letter is not in the word and not previously colored as green or yellow. 
 
-The `matplotlib` library has been used to create two visualizations. The first visualization shows the guess distribution for each attempt after each game. For instance, across 4 games, it took the player 5 attempts to to guess the correct word. It additionally shows the following: 
+The `matplotlib` library has been used to create two visualizations. The first visualization shows the guess distribution for each attempt after each game. For instance, across 4 games, it took the player 5 attempts to guess the correct word. It additionally shows the following: 
 
 - Total Games Played
 - Total Games Won
@@ -49,7 +49,7 @@ It took the user 4 tries to win this game which is why "Splendid" is displayed i
 
 ### Safeguards:
 
-Safeguards have been created to prevent the user from entering nonensical entries such as _STAWL_ or all vowels like _AEIOU_. Other safeguards are to prevent the user from accidentally wasting a guess by entering repeat words or nothing at all. Finally the last safeguard is to prevent a user from entering words greater than 5 letters which would cause the program to crash.
+Safeguards have been created to prevent the user from entering nonsensical entries such as _STAWL_ or all vowels like _AEIOU_. Other safeguards are to prevent the user from accidentally wasting a guess by entering repeat words or nothing at all. Finally, the last safeguard is to prevent a user from entering words greater than 5 letters which would cause the program to crash.
 
 #### Message Safeguards
 Message Safeguards will display a message and then prompt the user to guess again. These scenarios will result in a message box: 
@@ -61,16 +61,16 @@ Message Safeguards will display a message and then prompt the user to guess agai
 
 ![Image](https://github.com/user-attachments/assets/39662f09-41ee-4f34-8e05-944a47491fa0) 
 
-It should be noted that in the image **APPLE** is a valid word, however the user on their next guess tried to enter an invalid word which prompted that warning. Afterwards the user will be prompted to make another guess. Moreover, the NYT's Wordle also displays messages for these invalid entry types.
+It should be noted that in the image **APPLE** is a valid word, however the user on their next guess tried to enter an invalid word which prompted that warning. Afterwards the user will be prompted to make another guess. Moreover, NYT's Wordle also displays messages for these invalid entry types.
 
 #### No Message Safeguards
 
-These safeguards are also intended to prevent invalid entries, however they'll simply prompt the user to enter another guess instead of displaying a message box. The following scenarios will result in another prompt box:
+These safeguards are also intended to prevent invalid entries; however they'll simply prompt the user to enter another guess instead of displaying a message box. The following scenarios will result in another prompt box:
 
 - Blank Entries
 - Entries that have numbers or special symbols like `12`, `#$`, `1W!@`
 - Words greater than 5 letters which is dealt with by exception handling
-- Previously guessed words (i.e trying to guess "ASSET" twice)
+- Previously guessed words (i.e. trying to guess "ASSET" twice)
 
 **Prompt Box Ex**
 
@@ -130,26 +130,26 @@ This code will not work for "B" in Bliss because there are two letters in ABBAS.
 - TYL = 1
 - |TYL| = 1
 
-The formula is stating that one of the yellow labelled "B" should be changed to Grey which is erroneous. There is only one "B" in BLISS which is in the wrong location but the formula is stating that this should be colored Grey. This would consequently imply that the Word (ABBAS) has no B when this is false. The solution however is to only use this formula when the **Total Letter Count in Guess > Total Letter Count in Word**. 
+The formula states that one of the yellow labelled "B" should be changed to Grey which is erroneous. There is only one "B" in BLISS which is in the wrong location, but the formula is stating that this should be colored Grey. This would consequently imply that the Word (ABBAS) has no B when this is false. The solution however is to only use this formula when the **Total Letter Count in Guess > Total Letter Count in Word**. 
 
 **Final Formula**: TYL = TLC - (CP + WP) **if** (TLC in Guess TLC < TLC in Word)
 
 ## File Explanations: 
-- **`official_wordle_function.py`**: Contains the official wordle function to determine whether a letter should be green, yellow or grey. The script is also the Python implementation of the formula explained in **Word Logic** along with being imported into the **wordle_gui** script.
+- **`official_wordle_function**: Contains the official wordle function to determine whether a letter should be green, yellow or grey. The script is also the Python implementation of the formula explained in **Word Logic** along with being imported into the **wordle_gui** script.
 
-- **`wordle_gui`**: This script runs the actual Wordle Game.
+- **`official_wordle_script`**: This script runs the actual Wordle Game.
 
-- `5_letter_words.txt`: Contains all the 5 letter words used to validate guesses and select a word. There are approximately 13,000 5-letter words in the English Language. This file contains **9,139 words** which is **70.30%** of all 5-letter words.
+- `5_letter_words`: Contains all the 5 letter words used to validate guesses and select a word. There are approximately 13,000 5-letter words in the English Language. This file contains **9,139 words** which is **70.30%** of all 5-letter words.
 
-- `frequent_guesses.txt`: Tracks all the guesses made by the player for every game. Wordle GUI Script then counts the distribution for each word to determine the top 10 most guessed words.
+- `frequent_guesses`: Tracks all the guesses made by the player for every game. Wordle GUI Script then counts the distribution for each word to determine the top 10 most guessed words.
 
-- `keyboard_logic.py`: Explains the logic for coloring the keys along
+- `keyboard_logic`: Explains the logic for coloring the keys along
 
-- `word list links.txt`: Contains links to the files used to complile the 5 letter word list.
+- `word list links`: Contains links to the files used to compile the 5 letter word list.
 
-- `wordle_py`: Testing Code for validating that the **official wordle function.py** script is correctly labelling each letter. It also has more contexts to provide more context on the function.
+- `wordle`: Testing Code for validating that the **official wordle function.py** script is correctly labelling each letter. It also has comments to provide more context on the function.
 
-- `wordle_stats.txt`: Records all the information about the player's stats across games.
+- `wordle_stats`: Records all the information about the player's stats across games.
   - "L" = Loss
   - "W" = Win
   - 1,2,3,4,5,6 = Number of guesses for an individual game. The **wordle_gui** script will count the number of 1's in the file to determine the number of games where it took the player one guess.
