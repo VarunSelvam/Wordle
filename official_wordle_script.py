@@ -11,7 +11,7 @@ import official_wordle_function as owf # Custom function that I created in anoth
 # Create a few text files for storing player statistics.
 
 # Set Folder Path, where file will be stored.
-folder_path = r"C:\Users\varun\Box Sync\Programming Practice Python\Python Projects\Wordle"
+folder_path = path # For security reasons, not specifying the path used to create/store the files.
 
 # List all the files in the folder
 files = os.listdir(folder_path)
