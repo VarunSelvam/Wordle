@@ -99,18 +99,23 @@ The program must correctly label each S in SASSY with the first S as the followi
 
 Python's `in` operator can be used, however the `in` operator will not consider duplicates. Consequently, Python will incorrectly state that there are 2 "yellow" S's in the word SASSY. This issue however can be solved by utilizing the following formula which will be demonstrated for the letter S in "SASSY".
 
+### Formula 
+
 - Word: ASSET
 - Guess: SASSY
 
-Correct Position (CP): 1
-Wrong Position(WP): 2
-Total Letter Count (TLC) in Word (ASSET): 2
-Total Yellow Labelled Letters:  (TYL)
+#### Formula Variables
 
-**Ex:** TYL = TLC - (CP + WP)
-             TYL = 2 - (1+2)
-             TYL = -1
-             |TYL| = 1
+- Correct Position (CP): 1
+- Wrong Position(WP): 2
+- Total Letter Count (TLC) in Word (ASSET): 2
+- Total Yellow Labelled Letters:  (TYL)
+
+**Ex:** 
+* TYL = TLC - (CP + WP)
+* TYL = 2 - (1+2)
+* TYL = -1
+* |TYL| = 1
              
 TYL = 1 indicates that one of the yellow labelled "S" in SASSY should be changed to Grey. Additionally, if TYL = 0, this means that Python's `in` operator has labelled the correct number of yellow letters. This formula however will not work if the letter count is greater in the word compared to the guess. For instance: 
 
